@@ -72,11 +72,13 @@ initializeHangmanHotSeat :: IO ()
 initializeHangmanHotSeat = do
 
     wordToGuess <- promptLine const_string_Message_EnterWord
+    printLine clearScreenString
     playHangManLoop $ Hangman.initializeGuessWord wordToGuess
 
 playHangManLoop :: Hangman.HangmanData -> IO ()
 playHangManLoop hangmanData = do
     
+    printLine clearScreenString
     printHangManGame $ hangmanData
 
     guessCharacter <- promptChar const_string_Message_EnterCharacter const_string_Error_NoCharacterEntered
@@ -175,3 +177,5 @@ const_string_File_Hangman_Dictionary = "words.txt"
 dictionaryOfWords :: [String]
 dictionaryOfWords = ["apple","banana","fruit","car","train","airplane","engineer","nurse","soldier","cake","pizza","bread","bird","chicken","tiger"]
 
+clearScreenString :: String
+clearScreenString = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
